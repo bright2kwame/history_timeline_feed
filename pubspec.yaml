@@ -1,6 +1,6 @@
 name: timeline_tree
 description: A timeline tree that displays events or activities.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/bright2kwame/history_timeline_feed
 
 environment:

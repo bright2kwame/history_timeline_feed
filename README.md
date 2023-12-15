@@ -15,6 +15,8 @@ The Dart TimelineTree widget provides a hierarchical visualization of chronologi
 
 Inspired by the app at https://schoolofnewafrica.com/, the Dart TimelineTree seeks to offer an intuitive solution for mission tracking, inviting collaborative efforts to refine and expand its capabilities.
 
+All the credit to my product design lead Tagoe Kingston (https://dribbble.com/niimantse), who is the brain behind the UI concept.
+
 
 ## Features
 
@@ -37,7 +39,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```yaml
 dependencies:
-  timeline_tree: ^0.0.2
+  timeline_tree: ^0.0.5
 
 ```
 
@@ -111,22 +113,17 @@ TimelinePlugin(
 • Extracting and Preparing Data
 ```dart
  List<TimelinePluginModel> items = [];
-
+ //itereating over the list of data
  for (int index = 0; index < responseItems.length; index++) {
       MissionTimelineItem element = responseItems[index];
-      if (index % 2 != 0) {
-        var model = TimelinePluginModel(
+      var positionedRight = index % 2 != 0;
+      var model = TimelinePluginModel(
             isActive: !element.locked,
-            position: TimelinePluginViewPosition.right,
+            position: positionedRight ? TimelinePluginViewPosition.right :  
+            TimelinePluginViewPosition.left,
             child: _timelineItemView(element));
         items.add(model);
-      } else {
-        var model = TimelinePluginModel(
-            isActive: !element.locked,
-            position: TimelinePluginViewPosition.left,
-            child: _timelineItemView(element));
-        items.add(model);
-      }
+      
     //updating the view
     setState(() {
       timelinePluginModels = items;
