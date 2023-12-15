@@ -11,7 +11,9 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-Timeline tree is used to display events or activities that occur over time in a hierarchical or nested manner.
+The Dart TimelineTree widget provides a hierarchical visualization of chronological events or activities, designed specifically for tracking a user's mission history. Currently in its early stages, the project aims to evolve with community contributions for enhanced functionality.
+
+Inspired by the app at https://schoolofnewafrica.com/, the Dart TimelineTree seeks to offer an intuitive solution for mission tracking, inviting collaborative efforts to refine and expand its capabilities.
 
 
 ## Features
