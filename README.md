@@ -18,9 +18,7 @@ Inspired by the app at https://schoolofnewafrica.com/, the Dart TimelineTree see
 
 ## Features
 
-![stages_timeline_tree](https://github.com/bright2kwame/history_timeline_feed/blob/timeline_tree_plugin/assets/stages_timeline_tree.png)
-![analytics_timeline_tree](https://github.com/bright2kwame/history_timeline_feed/blob/timeline_tree_plugin/assets/analytics_timeline_tree.png)
-![events_timeline_tree](https://github.com/bright2kwame/history_timeline_feed/blob/timeline_tree_plugin/assets/events_timeline_tree.png)
+![timeline_tree](https://github.com/bright2kwame/history_timeline_feed/blob/timeline_tree_plugin/assets/timeline_tree.png)
 
 • Progress indicator 
 • highly customisable nodes 
