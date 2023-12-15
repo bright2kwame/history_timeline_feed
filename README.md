@@ -51,61 +51,92 @@ import 'package:timeline_tree/timeline_tree.dart';
 ```
 
 ## Usage
-NODE ARRANGEMENT
+
+Timeline Model list
+
+```dart
+List<TimelinePluginModel> items = [];
+```
+
+Node Arrangements
 
 • Position Node Left 
 ```dart
-TimelinePluginModel(
-          position: TimelinePluginViewPosition.left,
-          child: Container(
-            child: Text("Stage 2"),
-          ),
+ var rightModel = TimelinePluginModel(
+            isActive: true,
+            position: TimelinePluginViewPosition.right,
+            child: _timelineItemView(element));
 ```
 • Position Node Right 
 
 ```dart
-TimelinePluginModel(
-          position: TimelinePluginViewPosition.right,
-          child: Container(
-            child: Text("Stage 2"),
-          ),
+ var rightModel = TimelinePluginModel(
+            isActive: false,
+            position: TimelinePluginViewPosition.left,
+            child: _timelineItemView(element));
 ```
 
+• Add Models to List 
+```dart
+ items.add(rightModel);
+ items.add(rightModel);
+ ```
 
-PROGRESS INDICATOR 
+TIMELINE TREE
 
-• Progress Indicator tint
+• Create Timeline Tree
 
  ```dart
-TimelinePluginModel(
-          position: TimelinePluginViewPosition.right,
-          child: Container(
-            child: Text("Stage 2"),
-            isActive: true
-          ),
+TimelinePlugin(
+        items: items,
+        lineWidth: 5,
+        shrinkWrap: true,
+        primary: false,
+        overlapFactor: 0.6,
+        activelineColor: AppResourses.appColors.primaryColor,
+        physics: const NeverScrollableScrollPhysics(),
+      ),
 ```
 
+## Example
+
+
 ```dart
-const like = 'sample';
+
 ```
 
 ## Additional information
 
+• Timeline Tree
+
+@items, list of model items to be displayed in the timeline
+@lineWidth, the width of the line in the timeline
+@inactivelineColor, color of the line for inactive region
+@activelineColor, color of the line for active regions
+@overlapFactor, the fraction for which the oncoming view should overlap
+
+```dart
+class TimelinePlugin {
+  final List<TimelinePluginModel> items;
+  final bool primary;
+  final bool shrinkWrap;
+  final ScrollPhysics? physics;
+  final double lineWidth;
+  final Color inactivelineColor;
+  final Color activelineColor;
+  final double overlapFactor;
+}
+```
+
+• Timeline Model
 
 @position, is an enum that tells if to position the node to left and right
 @isActive, tells if the that object is active or not. This helps for people who want the timeline have states
 @child, the view to attached to the tree
 
 ```dart
-class TimelinePluginModel {
-  final TimelinePluginViewPosition position;
-  final Widget child;
-  final bool isActive;
-
-  TimelinePluginModel({
-    required this.position,
-    required this.child,
-    required this.isActive,
-  });
-}
+class TimelinePluginModel(
+            isActive,
+            position,
+            child)
 ```
