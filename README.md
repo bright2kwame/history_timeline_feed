@@ -21,7 +21,7 @@ Inspired by the app at https://schoolofnewafrica.com/, the Dart TimelineTree see
 ![timeline_tree](https://github.com/bright2kwame/history_timeline_feed/blob/timeline_tree_plugin/assets/timeline_tree.png)
 
 • Progress indicator 
-• highly customisable nodes 
+• Highly customisable nodes 
 • Customisable styling options
 
 ## Getting started
