@@ -37,7 +37,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```yaml
 dependencies:
-  timeline_tree: ^0.0.1
+  timeline_tree: ^0.0.2
 
 ```
 
