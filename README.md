@@ -98,10 +98,59 @@ TimelinePlugin(
 
 ## Example
 
+• Import the package
+```dart
+ //import the plugin
+ import 'package:timeline_tree/timeline_tree.dart';
+```
 
 ```dart
-
+ List<TimelinePluginModel> timelinePluginModels = [];
 ```
+
+• Extracting and Preparing Data
+```dart
+ List<TimelinePluginModel> items = [];
+
+ for (int index = 0; index < responseItems.length; index++) {
+      MissionTimelineItem element = responseItems[index];
+      if (index % 2 != 0) {
+        var model = TimelinePluginModel(
+            isActive: !element.locked,
+            position: TimelinePluginViewPosition.right,
+            child: _timelineItemView(element));
+        items.add(model);
+      } else {
+        var model = TimelinePluginModel(
+            isActive: !element.locked,
+            position: TimelinePluginViewPosition.left,
+            child: _timelineItemView(element));
+        items.add(model);
+      }
+    //updating the view
+    setState(() {
+      timelinePluginModels = items;
+    });
+  }
+```
+
+• Creating the View
+```dart
+  Widget _timelineView() {
+    return Container(
+      margin: const EdgeInsets.all(16),
+      child: TimelinePlugin(
+        items: timelinePluginModels,
+        lineWidth: 5,
+        shrinkWrap: true,
+        primary: false,
+        overlapFactor: 0.6,
+        activelineColor: AppResourses.appColors.primaryColor,
+        physics: const NeverScrollableScrollPhysics(),
+      ),
+    );
+  }
+  ```
 
 ## Additional information
 
@@ -115,14 +164,14 @@ TimelinePlugin(
 
 ```dart
 class TimelinePlugin {
-  final List<TimelinePluginModel> items;
-  final bool primary;
-  final bool shrinkWrap;
-  final ScrollPhysics? physics;
-  final double lineWidth;
-  final Color inactivelineColor;
-  final Color activelineColor;
-  final double overlapFactor;
+  final List<TimelinePluginModel> items,
+  final bool primary,
+  final bool shrinkWrap,
+  final ScrollPhysics? physics,
+  final double lineWidth,
+  final Color inactivelineColor,
+  final Color activelineColor,
+  final double overlapFactor
 }
 ```
 
@@ -134,7 +183,18 @@ class TimelinePlugin {
 
 ```dart
 class TimelinePluginModel(
-            isActive,
-            position,
-            child)
+           final bool isActive,
+           final TimelinePluginViewPosition position,
+           final Widget child)
+```
+
+• Timeline Position Enum
+
+Indicate the position of arrangement
+
+```dart
+enum TimelinePluginViewPosition {
+  left,
+  right
+}
 ```
